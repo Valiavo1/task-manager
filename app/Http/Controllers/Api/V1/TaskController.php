@@ -22,7 +22,7 @@ class TaskController extends Controller
      *         @OA\JsonContent(
      *             type="object",
      *             @OA\Property(
-     *                 property="data",
+     *                 property="taches",
      *                 type="array",
      *                 @OA\Items(ref="#/components/schemas/Task")
      *             )
