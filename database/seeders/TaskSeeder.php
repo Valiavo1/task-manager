@@ -9,22 +9,26 @@ class TaskSeeder extends Seeder
 {
     public function run(): void
     {
-        Task::create([
+        Task::factory()->create([
             'title' => 'Apprendre Laravel',
             'description' => 'Étudier le framework Laravel en profondeur',
             'completed' => true,
         ]);
 
-        Task::create([
+        Task::factory()->create([
             'title' => 'Développer une API RESTful',
             'description' => 'Créer une API complète avec Laravel',
             'completed' => false,
         ]);
 
-        Task::create([
+        Task::factory()->create([
             'title' => 'Documenter avec Swagger',
             'description' => 'Mettre en place la documentation Swagger pour l\'API',
             'completed' => false,
         ]);
+
+        Task::factory()->count(5)->create();
+
+        Task::factory()->completed()->count(3)->create();
     }
 }
