@@ -22,7 +22,7 @@ class TaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titre' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'completed' => 'nullable|boolean',
         ];
@@ -36,7 +36,7 @@ class TaskRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'titre.required' => 'Le titre est obligatoire.',
+            'title.required' => 'Le titre est obligatoire.',
             'titre.string' => 'Le titre doit être une chaîne de caractères.',
             'titre.max' => 'Le titre ne peut pas dépasser 255 caractères.',
             'description.string' => 'La description doit être une chaîne de caractères.',
@@ -45,15 +45,12 @@ class TaskRequest extends FormRequest
     }
 
     /**
-     * Get the validated data from the request.
-     *
-     * @return array<string, mixed>
+     * Prepare the data for validation.
      */
-    public function validated($key = null, $default = null): array
+    protected function prepareForValidation(): void
     {
-        $validated = parent::validated($key, $default);
-        $validated['title'] = $validated['titre'];
-        unset($validated['titre']);
-        return $validated;
+        $this->merge([
+            'title' => $this->titre,
+        ]);
     }
 }

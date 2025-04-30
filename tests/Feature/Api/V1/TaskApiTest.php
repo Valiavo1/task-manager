@@ -133,6 +133,6 @@ class TaskApiTest extends TestCase
         ]);
 
         $response->assertStatus(422)
-            ->assertJsonValidationErrors(['titre']);
+            ->assertJsonValidationErrors(['title']);
     }
 }
