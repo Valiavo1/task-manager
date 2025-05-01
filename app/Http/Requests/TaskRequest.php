@@ -38,7 +38,7 @@ class TaskRequest extends FormRequest
         return [
             'title.required' => 'Le titre est obligatoire.',
             'title.string' => 'Le titre doit être une chaîne de caractères.',
-            'titre.max' => 'Le titre ne peut pas dépasser 255 caractères.',
+            'title.max' => 'Le titre ne peut pas dépasser 255 caractères.',
             'description.string' => 'La description doit être une chaîne de caractères.',
             'completed.boolean' => 'Le statut doit être un boolean.',
         ];
